@@ -8,7 +8,7 @@ public class ConstantGlobal {
     }
 
     public final static String BROWSER=PropertiesHelper.getValue("BROWSER");
-    public final static boolean HEADLESS=Boolean.parseBoolean(PropertiesHelper.getValue("HEADLESS"));
+    public final static Boolean HEADLESS=Boolean.parseBoolean(PropertiesHelper.getValue("HEADLESS"));
     public final static String URL=PropertiesHelper.getValue("URL");
     public final static String USERNAME=PropertiesHelper.getValue("USERNAME");
     public final static String PASSWORD=PropertiesHelper.getValue("PASSWORD");
@@ -24,5 +24,7 @@ public class ConstantGlobal {
     public final static String RECORD_VIDEO_PATH=PropertiesHelper.getValue("RECORD_VIDEO_PATH");
     public final static String EXTENT_REPORT_PATH=PropertiesHelper.getValue("EXTENT_REPORT_PATH");
     public final static String AUTHOR=PropertiesHelper.getValue("AUTHOR");
+    public final static String LOCATE = PropertiesHelper.getValue("LOCATE");
+
 
 }

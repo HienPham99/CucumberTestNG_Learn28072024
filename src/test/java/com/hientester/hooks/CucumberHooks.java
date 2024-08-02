@@ -6,6 +6,8 @@ import hientester.com.helpers.CaptureHelper;
 import hientester.com.helpers.PropertiesHelper;
 import hientester.com.utils.LogUtils;
 import io.cucumber.java.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class CucumberHooks {
 
@@ -24,14 +26,14 @@ System.out.println("===========BEFORE ALL============");
     @Before
     public void beforeScenario(){
         System.out.println("==============beforeScenario==========");
-        BaseTest.createBrowser();
-        //Record video
+       // BaseTest.createBrowser();
+
     }
 
     @After
     public void afterScenario(Scenario scenario){
         System.out.println("==============afterScenario==========");
-        BaseTest.closeDriver();
+       BaseTest.closeDriver();
     }
 
     @BeforeStep
@@ -45,8 +47,12 @@ System.out.println("===========BEFORE ALL============");
     @AfterStep
     public void afterStep(Scenario scenario){
         System.out.println("==============afterStep==========");
-        if (scenario.isFailed()){
-            CaptureHelper.takeScreenshot(scenario.getName());
-        }
+//        if (scenario.isFailed()){
+//            CaptureHelper.takeScreenshot(scenario.getName());
+//        }
+//        if (scenario.isFailed()) {
+//            final byte[] screenshot = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+//            scenario.attach(screenshot, "image/png", "Screenshot Failed");
+//        }
     }
 }

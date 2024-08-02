@@ -28,4 +28,8 @@ public class DriverManager {
         }
 
     }
+
+    public static void close(){
+        DriverManager.driver.get().close();
+    }
 }

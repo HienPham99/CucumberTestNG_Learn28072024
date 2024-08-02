@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM  "http://testng.org/testng-1.0.dtd">
-<suite name="All test suite">
-    <test name="Run Gherkin">
+<suite name="My Test Suite">
+    <test name="My test">
+<!--        <parameter name="cucumber.filter.tags" value="@SuccessfulLogin or @InvalidLogin"/>-->
         <classes>
             <class name="com.hientester.runners.TestRunnerLoginCMS"/>
         </classes>

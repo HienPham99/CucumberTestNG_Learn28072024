@@ -17,7 +17,7 @@ public class PropertiesHelper {
     public static Properties loadAllFiles() {
         LinkedList<String> files = new LinkedList<>();
         // Add tất cả file Properties vào đây theo mẫu
-        files.add("src/test/resources/configs/configs.properties");//đọc 1 file. Nếu muốn đoc thêm nhiều file làm tương tự
+        files.add("src/test/resources/configs.properties");//đọc 1 file. Nếu muốn đoc thêm nhiều file làm tương tự
 
        // files.add("src/test/resources/local.properties");
 

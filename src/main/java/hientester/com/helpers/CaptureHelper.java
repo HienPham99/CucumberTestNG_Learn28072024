@@ -103,7 +103,6 @@ public class CaptureHelper extends ScreenRecorder {
     public static void takeScreenshot(String screenshotName){
         //Hàm chụp ảnh và tự tạo đường dẫn foder để lưu ảnh
         TakesScreenshot ts = (TakesScreenshot) DriverManager.getDriver();
-
         //Gọi hàm để chụp ảnh màn hình_getScreenshotAs
         File source = ts.getScreenshotAs(OutputType.FILE);
         //Kiểm tra folder tồn tại. Nếu không thì tạo mới folder theo đường dẫn

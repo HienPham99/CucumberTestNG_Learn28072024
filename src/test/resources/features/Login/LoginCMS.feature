@@ -8,42 +8,48 @@ Feature: Login CMS
     Then User redirect to admin page "https://cms.anhtester.com/admin"
     And User should see the notification displays
 
-#  @success
-#  Scenario: Sucessful login with valid credentials
-#    Given user has access on the login page
-#    When I enter my valid username and password
-#    And  I click the login button
-#    When user log in to the CRM system with Project Manager role
-#    Then I should be redirected to my account dashboard
-#    And I should see a welcome message with my username
-#    Then the user shall logger in successfully(verify header page, verify message, verify url, verify customer page)
-#
-#
-#  @invalid
-#  Scenario Outline: Failed login with invalid credentials
-#    Given I am on the login page
-#    When I enter my invalid username and password
-#    And  I click the login button
-#    Then I should see an error message
-#    And I should still be on the login page
-#    Examples:
-#      | EMAIL             | PASSWORD | PIN |
-#      | abc@email.com     | 123456   | 123 |
-#      | admin@example.com | 678      | 123 |
-#
-#
-#  @invalid
-#  Scenario: Failed login with email invalid
-#    Given user has access to the login page
-#    When I enter my invalid username and password
-#    And  I click the login button
-#    Then I should see an error message
-#    And I should still be on the login page
-#
-#  @invalid
-#  Scenario: Failed login with password invalid
-#    Given I am on the login page
-#    When I enter my invalid username and password
-#    And  I click the login button
-#    Then I should see an error message
-#    And I should still be on the login page
+  @SuccessfulLogin
+  Scenario: Successful login
+    Given the user is on the login page
+    When the user enters valid username and password
+    And clicks the login button
+    Then the user should be redirected to the admin page
+
+  @InvalidLogin
+  Scenario: Invalid Login
+    Given the user is on the login page
+    When the user enters an invalid username or password
+    And clicks the login button
+    Then the user should see an error message
+    And stay on the login page
+
+  Scenario: Empty Username
+    Given the user on the login page
+    When the user leaves the username fields empty
+    And clicks the login button
+    Then the user should see an error message
+    And stay on the login page
+
+  Scenario: Empty Password
+    Given the user on the login page
+    When the user leaves the password fields empty
+    And clicks the login button
+    Then the user should see an error message
+    And stay on the login page
+
+  Scenario: Locked Account
+    Given the user on the login page
+    And my account has been locked
+    When user enter valid username and password
+    And clicks the login button
+    Then the user should see an error message
+    And stay on the login page
+
+
+  Scenario: Forgotten Password
+    Given the user on the login page
+    And  the user have forgotten my password
+    When user click on the "Forgot Password" link
+    And enter my email address
+    And click on the "Reset Password" button
+    Then the user should receive an email with instructions to reset my password.

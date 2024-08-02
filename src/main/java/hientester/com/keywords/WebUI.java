@@ -40,6 +40,21 @@ public class WebUI {
         }
     }
 
+    public static void verifyElementVisible(By by){
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(),Duration.ofSeconds(TIMEOUT));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        LogUtils.info("Element " +by + "displayed");
+        Assert.assertTrue(DriverManager.getDriver().findElement(by).isDisplayed(),"❌Element NOT Visible.");
+    }
+
+    public static void verifyElementVisible(By by, String message){
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(),Duration.ofSeconds(TIMEOUT));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        LogUtils.info("Element " +by + "displayed");
+        Assert.assertTrue(DriverManager.getDriver().findElement(by).isDisplayed(),message);
+    }
+
+
     //3.hàm in r log (println log)LogUtils.info
     public static void logConsole(Object message) {
         LogUtils.info(message);
